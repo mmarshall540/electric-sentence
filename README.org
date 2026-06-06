@@ -89,7 +89,7 @@ If there is another package that does the exact same thing, I am not aware of it
 
 * ToDo
 
-- [ ] Finish converting =defvar= forms to =defcustom= .
+- [ ] Finish converting =defvar= forms to =defcustom=.
 - [ ] Make sure it works well with =electric-quote-mode=.
 - [ ] Consider not just quotations that end a sentence, but also parentheticals?
 - [ ] Make adding abbreviations stupid simple.

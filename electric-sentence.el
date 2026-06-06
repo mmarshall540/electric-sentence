@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; See the included readme.org file for commentary regarding this
+;; See the included README.org file for commentary regarding this
 ;; package.
 
 ;;; Code:
