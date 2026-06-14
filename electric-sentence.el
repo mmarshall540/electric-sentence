@@ -70,7 +70,34 @@ the limitation by typing \\[quoted-insert] \`SPC' just once."
 ;; is that some people will use `setq' out of ignorance and wonder why
 ;; it doesn't work for them.)
 (defcustom electric-sentence-abbrev-regexp
-  "\\(\\_<\\|\\.\\)\\([A-Za-z0-9 ]\\|lbs?\\|Rd\\|[Ll]n\\|[Cc]o\\|Inc\\|[DJMS]r\\|[Mv]s\\|[CFMPSp]t\\|alt\\|[Ee]tc\\|[Dd]iv\\|es[pt]\\|Cir\\|Hon\\|Ltd\\|Rev\\|Ste\\|[MD]rs\\|App\\|Sup\\|Apt\\|Ave\\|Assn\\|Blvd\\|[Dd]ept\\|Inst\\|Prof\\|Univ\\)\\."
+  (rx (group (or symbol-start "."))
+      (group (or (any "A-Z" "a-z" "0-9" " ") ; any 1 num ltr or space
+                 (seq (any ?L ?l) ?b (? ?s)) ; Lb Lbs lb lbs
+                 (seq (any ?L ?l) ?n)   ; Ln ln
+                 (seq (any ?C ?c) ?o)   ; Co co
+                 (seq (any ?D ?J ?M ?S) ?r) ; Dr Jr Mr Sr
+                 (seq (any ?M ?v) ?s)   ; Ms vs
+                 (seq (any ?C ?F ?M ?P ?S ?p) ?t) ; Ct Ft Mt Pt St pt
+                 (seq (any ?E ?e) ?t ?c) ; Etc etc
+                 (seq (any ?D ?d) ?i ?v) ; Div div
+                 (seq ?e ?s (any ?p ?t)) ; esp est
+                 (seq (any ?M ?D) ?r ?s) ; Mrs Drs
+                 (seq (any ?D ?d) ?e ?p ?t) ; Dept dept
+                 "Apt"
+                 "Assn"
+                 "Ave"
+                 "Blvd"
+                 "Cir"
+                 "Hon"
+                 "Inc"
+                 "Inst"
+                 "Ltd"
+                 "Prof"
+                 "Rd"
+                 "Rev"
+                 "Ste"
+                 "alt"))
+      ".")
   "A regular expression to match abbreviations.
 This is for matching abbreviations before a period, when those
 abbreviations would not usually end a sentence.
@@ -79,8 +106,6 @@ Note that it is very difficult to come up with a comprehensive set of
 abbreviations.  The best approach is probably to copy from sources in
 your field, which you are most likely to use.  For example, the Indigo
 Book contains lists of abbreviations for use in legal case titles."
-  ;; "\\_<\\(Mrs?\\|Ms\\|[A-Z]\\)\\."
-  ;; Other options will be `nil' and a custom regexp string.
   :type 'regexp
   :link '(url-link
           "https://law.resource.org/pub/us/code/blue/IndigoBook.html#T11")
