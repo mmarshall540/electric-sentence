@@ -3,7 +3,7 @@
 #+CAPTION: Some hoped Bonnie and Clyde would receive an electric sentence.  (Defunct Dallas Journal, Public domain, via Wikimedia Commons)
 [[file:B&CElecChairEditCartoon1934.jpg]]
 
-*NOTE [2026-09-13 Sun]: I am no longer developing this package. Contrary to my earlier thoughts detailed below. I've decided to just set =sentence-end-double-space= to nil and accept that old saying: "The perfect is the enemy of the good." But do feel free to fork, if so inclined!*
+NOTE [2026-09-13 Sun]: I am no longer developing this package. Contrary to my earlier thoughts detailed below. I've decided to just set =sentence-end-double-space= to nil and accept that old saying: "The perfect is the enemy of the good." But do feel free to fork, if so inclined!
 
 * The point
 
